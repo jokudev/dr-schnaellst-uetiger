@@ -3,8 +3,8 @@
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from 'react';
 import { ThemeToggle } from "./ThemeToggle";
-import { useState } from 'react'; // Add this import
 
 interface NavigationItem {
   name: string;
@@ -55,7 +55,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Add state for menu
 
   return (
-    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+    <nav className="bg-transparent border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Logo and primary navigation */}
@@ -89,8 +89,8 @@ export default function Navbar() {
               </div>
 
               {/* Replace with your logo */}
-              <Link href="/" className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 p-2">
-                TV Itingen
+              <Link href="/" className="text-l md:text-2xl font-bold text-indigo-600 dark:text-indigo-400 p-2">
+                Dr schnällscht Ütiger
               </Link>
             </div>
 
@@ -144,10 +144,9 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      <div 
-        className={`sm:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`} 
+      <div
+        className={`sm:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}
         id="mobile-menu">
         <div className="pt-2 pb-3 space-y-1">
           {navigation.map((item) => (
