@@ -20,9 +20,7 @@ const navigation: NavigationItem[] = [
   { name: "Settings", href: "/settings", signIn: true, role: "ADMIN" },
 ];
 
-function isAllowed(item: NavigationItem) {
-  const { user } = useUser();
-  const userRole = user?.publicMetadata.role as "ADMIN" | "STAFF" | undefined;
+function isAllowed(item: NavigationItem, userRole: "ADMIN" | "STAFF" | undefined) {
   if (item.role === userRole) {
     return true;
   }
@@ -34,10 +32,10 @@ function isAllowed(item: NavigationItem) {
   }
 }
 
-function getSecuredNavigationItems(item: NavigationItem, component: React.ReactNode) {
+function getSecuredNavigationItems(item: NavigationItem, component: React.ReactNode, userRole: "ADMIN" | "STAFF" | undefined) {
   if (item.signIn && item.role !== undefined) {
     return <SignedIn key={item.name}>
-      {isAllowed(item) ? component : null}
+      {isAllowed(item, userRole) ? component : null}
     </SignedIn>
   }
   else if (item.signIn && item.role === undefined) {
@@ -53,6 +51,8 @@ function getSecuredNavigationItems(item: NavigationItem, component: React.ReactN
 export default function Navbar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Add state for menu
+  const { user } = useUser();
+  const userRole = user?.publicMetadata.role as "ADMIN" | "STAFF" | undefined;
 
   return (
     <nav className="bg-transparent border-b border-gray-200 dark:border-gray-700">
@@ -107,7 +107,8 @@ export default function Navbar() {
                         } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
                     >
                       {item.name}
-                    </Link>
+                    </Link>,
+                    userRole
                   )}
                 </div>
               ))}
@@ -160,7 +161,8 @@ export default function Navbar() {
                     } block pl-3 pr-4 py-2 border-l-4 text-base font-medium`}
                 >
                   {item.name}
-                </Link>
+                </Link>,
+                userRole
               )}
             </div>
           ))}

@@ -7,10 +7,10 @@ export default function AboutCard() {
         Dr schnällscht Ütiger isch en traditionelle Wettkampf für alli
         Schuelchind us Ütige. Organisiert vom Turnverein Ütige, bietet
         de Alass e spannendi Glägeheit für alli junge Sportler zum sich
-        z'mässe und Spass z'ha.
+        z&apos;mässe und Spass z&apos;ha.
       </p>
       <p className="text-gray-700 dark:text-gray-300">
-        Für d'Teilnehmer und Besucher gits vom Turnverein Ütige au no
+        Für d&apos;Teilnehmer und Besucher gits vom Turnverein Ütige au no
         e Stand mit Ässe und Trinke.
       </p>
     </div>
