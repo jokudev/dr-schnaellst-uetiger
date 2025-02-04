@@ -102,8 +102,8 @@ export default function Navbar() {
                     <Link
                       href={item.href}
                       className={`${pathname === item.href
-                        ? "border-indigo-500 text-gray-900 dark:text-white"
-                        : "border-transparent text-gray-500 dark:text-gray-400 hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700 dark:hover:text-gray-200"
+                        ? "border-indigo-500 text-gray-900 dark:text-white transition-all duration-300 ease-in-out transform hover:scale-105"
+                        : "border-transparent text-gray-500 dark:text-gray-400 hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 ease-in-out transform hover:scale-105"
                         } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
                     >
                       {item.name}

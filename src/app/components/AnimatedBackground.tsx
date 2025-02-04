@@ -4,7 +4,7 @@ export default function AnimatedBackground() {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
       {/* Grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080801a_1px,transparent_1px),linear-gradient(to_bottom,#8080801a_1px,transparent_1px)] bg-[size:14px_24px]" />
       
       {/* Animated gradient blobs */}
       <div className="absolute -left-20 -top-20 h-[500px] w-[500px] rounded-full bg-blue-600/20 dark:bg-blue-600/30 opacity-30 dark:opacity-30 blur-[100px] animate-blob" />
